@@ -6,16 +6,35 @@
     <title>Life Feed</title>
   </head>
   <body>
-    <header>Header</header>
+    <header>
+      <ul class="nav">
+        <% if session[:user] == nil %>
+        <li>
+          <a href="/">Home</a>
+        </li>
+          <li>
+            <a href="/signup">Sign up</a>
+          </li>
+          <li>
+            <a href="/login">Log In</a>
+          </li>
+          <% elsif session[:user] != nil %>
+            <li>
+              <a href="/member"><%= session[:user].name %></a>
+            </li>
+            <li>
+              <a href="/">Home</a>
+            </li>
+            <li>
+              <a href="/logout">log out</a>
+            </li>
+          <% end %>
+        </ul>
+      </header>
 
+      <%= yield %>
 
-
-
-    <%= yield %>
-
-
-
-    <footer>footer</footer>
-    <script type="text/javascript" src="/main.js"></script>
-  </body>
-</html>
+      <footer>footer</footer>
+      <script type="text/javascript" src="/main.js"></script>
+    </body>
+  </html>

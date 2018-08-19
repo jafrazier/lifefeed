@@ -1,0 +1,7 @@
+<h1>members</h1>
+
+<% if session[:user] == nil %>
+  <p>NO member found</p>
+<% elsif session[:user] != nil %>
+ <p>welcome back <%= session[:user].name %></p>
+<% end %>
