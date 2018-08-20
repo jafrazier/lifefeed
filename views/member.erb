@@ -1,10 +1,7 @@
-<% require 'httparty'
-     require 'json' %>
-<h1>members</h1>
 <% if session[:user] == nil %>
   <p>NO member found</p>
 <% elsif session[:user] != nil %>
- <p>welcome back <%= session[:user].name %></p>
+ 
 
  <div class="container">
    <div class="item news">
@@ -16,7 +13,7 @@
      <div class="article">
        <img src="<%= news['urlToImage']%>" alt="">
        <h3><%= news['title'] %></h3>
-       <h4>From: <%= news['source']['name'] %></h4>
+       <h4>From:<a href="<%= news['url'] %>" target="_blank"> <%= news['source']['name'] %></a></h4>
        <h4>By: <%= news['author'] %></h4>
        <p><%= news['description']%></p>
      </div>
@@ -28,31 +25,33 @@
    <div class="item posts">
      <form class="" action="/member" method="post">
        <label for="image">New image</label>
-       <input type="text" name="image" placeholder="Image url"><br><br>
-       <textarea id = "myTextArea" rows = "3" cols = "80" name="message" placeholder="New post here"></textarea>
-       <input type="submit" name="" value="Post">
+       <input type="text" name="image" value='Image url'><br><br>
+       <textarea id = "myTextArea" rows = "4" cols = "90" name="message" placeholder="New post here" required></textarea>
+       <input type="submit" name="" value="Post" class="postbtn">
      </form>
-     <% Post.all.each do |post|%>
-     <% if post['post_url'] == nil %>
+     <% Post.all.reverse.each do |post|%>
+     <% if post['post_url'] == 'Image url' %>
      <div class="newPost">
        <h3>Posted by: <%= post['by'] %></h3>
-       <p><%= post['message'] %></p>
-       <small><%= post['created_at'] %></small>
-       <hr>
+       <p class="textOnly"><%= post['message'] %></p>
+       <small><%= DateTime.now.strftime("posted on %m/%d/%Y") %></small>
      </div>
-     <% elsif post['post_url'] != nil %>
+     <% else %>
      <div class="newPost">
-       <img src="<%= post['post_url'] %>" alt="">
        <h3>Posted by: <%= post['by'] %></h3>
+       <img src="<%= post['post_url'] %>" alt="">
        <p><%= post['message'] %></p>
-       <small><%= post['created_at'] %></small>
-       <hr>
+       <small><%= DateTime.now.strftime("posted on %m/%d/%Y") %></small>
      </div>
      <% end %>
      <% end %>
    </div>
    <div class="item members">
-
+     <% User.all.each do |user|%>
+     <div class="member">
+       <h5><%= user["name"] %></h5>
+     </div>
+     <% end %>
    </div>
  </div>
 <% end %>

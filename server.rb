@@ -23,7 +23,7 @@ post '/signup' do
     password: params['password']
   )
   user.save
-  redirect '/'
+  redirect :login
 end
 
 get '/login' do

@@ -3,6 +3,21 @@
   padding: 0;
   margin: 0;
 }
+.nav {
+  width: 100%;
+  text-align: right;
+}
+.nav li {
+  display: inline-block;
+  list-style-type: none;
+  width: auto;
+  margin: 0 1em;
+
+}
+.nav li a {
+  text-decoration: none;
+  font-size: 1.2em;
+}
 .container {
   display: grid;
   grid-template: auto / 34% 50% 10%;
@@ -24,4 +39,51 @@
 }
 .article h3, h4 {
   margin: .3em 0;
+}
+.newPost {
+  height: 20em;
+  width: 90%;
+  margin: 0 auto;
+  position: relative;
+  background: rgba(0,0,0,.05);
+  margin-bottom: 1em;
+  text-align: center;
+  padding: .5em;
+  border-radius: 2px;
+  box-shadow: 5px 5px 5px black;
+}
+.textOnly {
+  margin-top: 3em;
+  font-size: 2em;
+  width: 100%;
+}
+.newPost img {
+  width: 15em;
+  height: auto;
+  margin-top: 3em;
+}
+.newPost small {
+  position: absolute;
+  width: 48%;
+  text-align: right;
+  bottom: 0;
+}
+.newPost h3 {
+  text-align: left;
+
+}
+
+.posts {
+  text-align: center;
+}
+form {
+  margin-bottom: 1em;
+}
+.postbtn {
+  margin-left: 75%;
+  font-size: 1em;
+  padding: .2em;
+  margin-top: 0.5em;
+  border-radius: 5px;
+  width: 6em;
 }
