@@ -1,7 +1,36 @@
+<% require 'httparty'
+     require 'json' %>
 <h1>members</h1>
-
 <% if session[:user] == nil %>
   <p>NO member found</p>
 <% elsif session[:user] != nil %>
  <p>welcome back <%= session[:user].name %></p>
+
+ <div class="container">
+   <div class="item news">
+     <% request = HTTParty.get('https://newsapi.org/v2/top-headlines?country=us&apiKey=10629f6795fb4c9b8f408cf4e3f81374') %>
+     <% news = JSON.parse(request.body) %>
+     <% article = news['articles'] %>
+     <% article.each do |news| %>
+     <% if news['urlToImage'] != nil && news['description'] != nil && news['author'] != nil %>
+     <div class="article">
+       <img src="<%= news['urlToImage']%>" alt="">
+       <h3><%= news['title'] %></h3>
+       <h4>From: <%= news['source']['name'] %></h4>
+       <h4>By: <%= news['author'] %></h4>
+       <p><%= news['description']%></p>
+
+     </div>
+     <hr>
+     <% end %>
+     <% end %>
+
+   </div>
+   <div class="item posts">
+
+   </div>
+   <div class="item members">
+
+   </div>
+ </div>
 <% end %>
