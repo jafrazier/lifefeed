@@ -2,6 +2,7 @@ require 'sinatra'
 require 'sinatra/activerecord'
 require 'httparty'
 require "json"
+require 'date'
 enable :sessions
 
 set :database, "sqlite3:lifefeed.sqlite3"
@@ -43,6 +44,18 @@ post '/login' do
 end
 
 get '/member' do
+  erb :member
+end
+
+post '/member' do
+  d= DateTime.now
+  newpost = Post.new(
+    post_url: params['image'],
+    by: session[:user].name,
+    message: params['message'],
+    created_at: d.strftime("posted on %m/%d/%Y")
+  )
+  newpost.save
   erb :member
 end
 

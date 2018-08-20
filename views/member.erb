@@ -19,7 +19,6 @@
        <h4>From: <%= news['source']['name'] %></h4>
        <h4>By: <%= news['author'] %></h4>
        <p><%= news['description']%></p>
-
      </div>
      <hr>
      <% end %>
@@ -27,7 +26,30 @@
 
    </div>
    <div class="item posts">
-
+     <form class="" action="/member" method="post">
+       <label for="image">New image</label>
+       <input type="text" name="image" placeholder="Image url"><br><br>
+       <textarea id = "myTextArea" rows = "3" cols = "80" name="message" placeholder="New post here"></textarea>
+       <input type="submit" name="" value="Post">
+     </form>
+     <% Post.all.each do |post|%>
+     <% if post['post_url'] == nil %>
+     <div class="newPost">
+       <h3>Posted by: <%= post['by'] %></h3>
+       <p><%= post['message'] %></p>
+       <small><%= post['created_at'] %></small>
+       <hr>
+     </div>
+     <% elsif post['post_url'] != nil %>
+     <div class="newPost">
+       <img src="<%= post['post_url'] %>" alt="">
+       <h3>Posted by: <%= post['by'] %></h3>
+       <p><%= post['message'] %></p>
+       <small><%= post['created_at'] %></small>
+       <hr>
+     </div>
+     <% end %>
+     <% end %>
    </div>
    <div class="item members">
 
