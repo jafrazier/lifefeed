@@ -1,10 +1,11 @@
 <% if session[:user] == nil %>
   <p>NO member found</p>
 <% elsif session[:user] != nil %>
- 
+
 
  <div class="container">
    <div class="item news">
+     <h2>News feed</h2>
      <% request = HTTParty.get('https://newsapi.org/v2/top-headlines?country=us&apiKey=10629f6795fb4c9b8f408cf4e3f81374') %>
      <% news = JSON.parse(request.body) %>
      <% article = news['articles'] %>
@@ -23,13 +24,14 @@
 
    </div>
    <div class="item posts">
+     <h2>Post feed</h2>
      <form class="" action="/member" method="post">
        <label for="image">New image</label>
        <input type="text" name="image" value='Image url'><br><br>
        <textarea id = "myTextArea" rows = "4" cols = "90" name="message" placeholder="New post here" required></textarea>
        <input type="submit" name="" value="Post" class="postbtn">
      </form>
-     <% Post.all.reverse.each do |post|%>
+     <% Post.all.each do |post|%>
      <% if post['post_url'] == 'Image url' %>
      <div class="newPost">
        <h3>Posted by: <%= post['by'] %></h3>
@@ -47,9 +49,10 @@
      <% end %>
    </div>
    <div class="item members">
+     <h2>Members</h2>
      <% User.all.each do |user|%>
      <div class="member">
-       <h5><%= user["name"] %></h5>
+       <h5><%= user["first_name"] %> <%= user["last_name"] %></h5>
      </div>
      <% end %>
    </div>

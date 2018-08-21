@@ -18,8 +18,10 @@ end
 post '/signup' do
   p params
   user = User.new(
+    first_name: params['first_name'],
+    last_name: params['last_name'],
+    birthday: params['birthday'],
     email: params['email'],
-    name: params['name'],
     password: params['password']
   )
   user.save
@@ -33,6 +35,7 @@ end
 post '/login' do
   email = params['email']
   given_password = params['password']
+  post = Post
   user = User.find_by(email: email)
   if user.password == given_password
     session[:user] = user
@@ -44,6 +47,7 @@ post '/login' do
 end
 
 get '/member' do
+
   erb :member
 end
 
@@ -51,9 +55,10 @@ post '/member' do
   d= DateTime.now
   newpost = Post.new(
     post_url: params['image'],
-    by: session[:user].name,
+    by: session[:user].first_name,
     message: params['message'],
-    created_at: d.strftime("posted on %m/%d/%Y")
+    created_at: d.strftime("posted on %m/%d/%Y"),
+    foriegn_id: session[:user].id
   )
   newpost.save
   erb :member

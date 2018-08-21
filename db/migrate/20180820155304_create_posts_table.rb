@@ -5,6 +5,7 @@ class CreatePostsTable < ActiveRecord::Migration[5.2]
     t.string :by
     t.string :message
     t.datetime :created_at
+    t.integer :foriegn_id
   end
   end
 end

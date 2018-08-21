@@ -17,11 +17,14 @@ ActiveRecord::Schema.define(version: 2018_08_20_155304) do
     t.string "by"
     t.string "message"
     t.datetime "created_at"
+    t.integer "foriegn_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "email"
-    t.string "name"
+    t.string "first_name"
+    t.string "last_name"
+    t.datetime "birthday"
     t.string "password_hash"
     t.datetime "created_at"
     t.datetime "upadated_at"

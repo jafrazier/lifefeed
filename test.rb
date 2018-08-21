@@ -14,9 +14,9 @@ require 'date'
 # end
 # d= DateTime.now
 # p d.strftime("posted on %m/%d/%Y")
-request = HTTParty.get('https://api.openweathermap.org/data/2.5/weather?zip=10001,us&appid=5dab0ed38cc904baea9f4d2f312e89fd')
-req = request['main']
-p req
+# request = HTTParty.get('https://api.openweathermap.org/data/2.5/weather?zip=10001,us&appid=5dab0ed38cc904baea9f4d2f312e89fd')
+# req = request['main']
+# p req
 # k = req['temp'].to_f
 # fk= k - 273
 # temp = fk.to_f * 1.8 + 32

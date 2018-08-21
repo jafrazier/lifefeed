@@ -21,7 +21,7 @@
           </li>
           <% elsif session[:user] != nil %>
             <li>
-              <a href="/member"><%= session[:user].name %></a>
+            <h2>Welcome back <%= session[:user].first_name.capitalize %></h2>
             </li>
             <li>
               <a href="/"><i class="fas fa-home"></i> Home</a>
