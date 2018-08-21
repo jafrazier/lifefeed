@@ -23,6 +23,7 @@ GEM
     multi_xml (0.6.0)
     mustermann (1.0.3)
     news-api (0.0.0)
+    pg (1.0.0)
     rack (2.0.5)
     rack-protection (2.0.3)
       rack
@@ -49,6 +50,7 @@ DEPENDENCIES
   bcrypt
   httparty
   news-api
+  pg
   rake
   sinatra
   sinatra-activerecord
