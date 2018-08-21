@@ -4,8 +4,9 @@ require 'httparty'
 require "json"
 require 'date'
 enable :sessions
-
-set :database, "sqlite3:lifefeed.sqlite3"
+require 'active_record'
+# set :database, "sqlite3:lifefeed.sqlite3"
+ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'])
 
 get '/' do
   erb :home
