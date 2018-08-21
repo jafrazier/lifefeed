@@ -1,15 +1,21 @@
-<h1>Sign Up</h1>
-<p>Already a user? <a href="/login">log in here</a></p>
-<form class="" action="/signup" method="post">
-  <label for="first_name">First name</label>
-  <input type="text" name="first_name" required><br><br>
-  <label for="last_name">Last name</label>
-  <input type="text" name="last_name" required><br><br>
-  <label for="birthday">Birthday</label>
-  <input type="date" name="birthday" required><br><br>
-  <label for="">Email</label>
-  <input type="email" name="email" required><br><br>
-  <label for="">Password</label>
-  <input type="password" name="password" required><br><br>
-  <input type="submit" name="login" value="sign up">
-</form>
+<div class="signup">
+  <div class="signupForm">
+    <h1>Sign Up</h1>
+    <p>Already a user?
+      <a href="/login">log in here</a>
+    </p>
+    <form class="" action="/signup" method="post">
+      <label for="first_name">First name</label>
+      <input type="text" name="first_name" required="required"><br>
+      <label for="last_name">Last name</label>
+      <input type="text" name="last_name" required="required"><br>
+      <label for="birthday">Birthday</label>
+      <input type="date" name="birthday" required="required"><br>
+      <label for="">Email</label>
+      <input type="email" name="email" required="required"><br>
+      <label for="">Password</label>
+      <input type="password" name="password" required="required"><br>
+      <input type="submit" name="login" value="sign up">
+    </form>
+  </div>
+</div>

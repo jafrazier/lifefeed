@@ -8,6 +8,7 @@
   </head>
   <body>
     <header>
+      <img src="/logo.png" alt="" class="logo">
       <ul class="nav">
         <% if session[:user] == nil %>
         <li>
@@ -20,11 +21,13 @@
             <a href="/login"><i class="fas fa-sign-out-alt"></i> Log In</a>
           </li>
           <% elsif session[:user] != nil %>
-            <li>
-            <h2>Welcome back <%= session[:user].first_name.capitalize %></h2>
-            </li>
+          <h2>Hello <%= session[:user].first_name.capitalize %></h2>
+
             <li>
               <a href="/"><i class="fas fa-home"></i> Home</a>
+            </li>
+            <li>
+              <a href="#" class="mySet"><i class="fas fa-wrench"></i> Settings</i></a>
             </li>
             <li>
               <a href="/logout"><i class="fas fa-sign-out-alt"></i> log out</a>
@@ -36,6 +39,10 @@
       <%= yield %>
 
       <footer>footer</footer>
+      <script
+			  src="https://code.jquery.com/jquery-3.3.1.min.js"
+			  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+			  crossorigin="anonymous"></script>
       <script type="text/javascript" src="/main.js"></script>
     </body>
   </html>

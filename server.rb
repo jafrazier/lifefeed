@@ -26,7 +26,8 @@ post '/signup' do
     password: params['password']
   )
   user.save
-  redirect :login
+  session[:user] = user
+  redirect :member
 end
 
 get '/login' do
@@ -36,15 +37,18 @@ end
 post '/login' do
   email = params['email']
   given_password = params['password']
-  post = Post
   user = User.find_by(email: email)
-  if user.password == given_password
+  if user == nil
+    redirect '/'
+
+  elsif user.password == given_password
     session[:user] = user
     redirect :member
   else
     p 'invalid'
     redirect '/'
   end
+
 end
 
 get '/member' do
