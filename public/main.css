@@ -62,6 +62,7 @@ body {
   position: fixed;
   margin: 10vh 10vw;
   padding: 2em;
+  overflow: scroll;
 }
 .home{
   text-align: center
