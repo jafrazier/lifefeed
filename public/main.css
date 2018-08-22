@@ -58,7 +58,7 @@ body {
 .home, .login, .signup{
   width: 80vw;
   height: 75vh;
-  border: black 1px solid;
+  /* border: black 1px solid; */
   position: fixed;
   margin: 10vh 10vw;
   padding: 2em;
@@ -70,18 +70,29 @@ body {
   width: 20em;
   border-radius: 1em;
   margin-bottom: 1.5em;
+  box-shadow: 5px 5px 5px rgba(0,0,0,.6);
 }
 .home p {
   text-align: left;
   margin: 1.5em 0;
 }
 .home a {
-  border: black 1px solid;
+  border: rgb(216, 215, 195) 1px solid;
   text-decoration: none;
   padding: .5em 1em;
   font-size: 1em;
   margin: 0 .5em;
-  border-radius: 1em;
+  border-radius: 10px;
+  background: rgba(22, 102, 120,.9);
+  color: rgb(216, 215, 195);
+  box-shadow: 5px 5px 5px rgba(0,0,0,.6);
+}
+.home a:hover {
+  background: rgba(22, 102, 120,.7);
+  color: rgba(216, 215, 195,.8);
+}
+.home a:active {
+  box-shadow: none;
 }
 .signupForm {
   border: black 1px solid;
@@ -91,13 +102,12 @@ body {
   font-size: 1.5em;
 }
 
-
 .container {
   padding: .5em;
   display: grid;
   grid-template: auto / 30% 50% 14%;
   width: 100%;
-  height: 95vh;
+  height: 97vh;
   column-gap: 3%;
   position: absolute;
   box-sizing: border-box;
@@ -135,8 +145,15 @@ body {
 .article h3, h4 {
   margin: .3em 0;
 }
+.article a {
+  color: rgb(216, 215, 195);
+  text-shadow: 2px 2px 2px rgba(0,0,0,.6);
+  font-weight: 200;
+}
 .newPost {
-  background: #bbbbbb;
+  background: rgb(125, 185, 179);
+  color: rgb(216, 215, 195);
+  text-shadow: 3px 3px 1px rgba(0,0,0,.7);
   height: 15em;
   width: 90%;
   margin: 0 auto;
@@ -146,6 +163,7 @@ body {
   padding: .5em;
   border-radius: 2px;
   box-shadow:5px 5px 5px rgba(0,0,0,.6);
+  font-weight: 100;
 }
 .textOnly {
   margin-top: 3em;
@@ -165,6 +183,7 @@ body {
 }
 .newPost h3 {
   text-align: left;
+  font-weight: 200;
 }
 
 .posts {
@@ -177,13 +196,18 @@ form {
 .postbtn, .allPosts {
   margin-left: 75%;
   font-size: 1em;
-  padding: .2em;
+  padding: .6em 0;
   margin-top: 0.5em;
   border-radius: 5px;
-  width: 6em;
+  width: 7em;
+  background: rgba(22, 102, 120,.9);
+  color: rgb(216, 215, 195);
+}
+.postbtn:hover, .allPosts:hover {
+  background: rgba(22, 102, 120,.7);
 }
 .pics {
-  width: 85%;
+  width: 75%;
   margin: 1em 0;
   height: 1.5em;
   border-radius: 5px;
@@ -191,11 +215,25 @@ form {
 }
 #myTextArea {
   border-radius: 5px;
-  width: 50vw;
+  width: 45vw;
   height: 15vh;
   border: rgba(125, 185, 179,.6) 3px solid;
-
-
+}
+.cancel {
+  padding: .2em .3em .1em .3em;
+  position: absolute;
+  left: 95%;
+  color: red;
+  border: rgba(255,255,255,.6) 1px solid;
+  font-weight: 600;
+  background: rgba(255,255,255,.6);
+  border-radius: 5px;
+  text-shadow: none;
+  box-shadow: 3px 3px 3px rgba(0,0,0,.6);
+  text-decoration: none;
+}
+.cancel:active {
+  box-shadow: none;
 }
 .member {
   height: 2em;

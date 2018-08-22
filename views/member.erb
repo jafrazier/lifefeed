@@ -3,7 +3,8 @@
 <% elsif session[:user] != nil %>
 
 <div class="setting">
-
+<a href="/delete">delete</a>
+<a href="/postdelete">Pdelete</a>
 
 </form>
 
@@ -39,12 +40,14 @@
      <% Post.all.reverse.each do |post|%>
      <% if post['foriegn_id'] == session[:user].id %>
      <div class="newPost mypost">
+       <a href="#" class="cancel">X</a>
        <h3>Posted by: <%= post['by'] %></h3>
        <p class="textOnly"><%= post['message'] %></p>
        <small><%= DateTime.now.strftime("posted on %m/%d/%Y") %></small>
      </div>
      <% else %>
      <div class="newPost allpost">
+       <a href="#" class="cancel">X</a>
        <h3>Posted by: <%= post['by'] %></h3>
        <img src="<%= post['post_url'] %>" alt="">
        <p class="textOnly"><%= post['message'] %></p>

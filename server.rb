@@ -5,8 +5,8 @@ require "json"
 require 'date'
 enable :sessions
 require 'active_record'
-# set :database, "sqlite3:lifefeed.sqlite3"
-ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'])
+set :database, "sqlite3:lifefeed.sqlite3"
+# ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'])
 
 get '/' do
   erb :home
@@ -40,7 +40,6 @@ post '/login' do
   user = User.find_by(email: email)
   if user == nil
     redirect '/'
-
   elsif user.password == given_password
     session[:user] = user
     redirect :member
@@ -74,6 +73,26 @@ get '/logout' do
   p 'user has been logged out'
   redirect '/'
 end
+
+get '/delete' do
+  current = session[:user].id
+  user = User.find_by(id: current)
+  postD = Post.where(foriegn_id: current)
+  postD.each do |post|
+    post.destroy
+  end
+  user.destroy
+  redirect '/'
+end
+
+get '/postdelete' do
+  post = Post.all
+  post.each do |posts|
+    posts.destroy
+  end
+  redirect :member
+end
+
 
 
 
