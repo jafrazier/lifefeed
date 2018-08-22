@@ -5,8 +5,8 @@ require "json"
 require 'date'
 enable :sessions
 require 'active_record'
-set :database, "sqlite3:lifefeed.sqlite3"
-# ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'])
+# set :database, "sqlite3:lifefeed.sqlite3"
+ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'])
 
 get '/' do
   erb :home
@@ -92,6 +92,7 @@ get '/postdelete' do
   end
   redirect :member
 end
+
 
 
 

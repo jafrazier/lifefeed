@@ -1,69 +1,97 @@
 <% if session[:user] == nil %>
   <p>NO member found</p>
-<% elsif session[:user] != nil %>
+  <% elsif session[:user] != nil %>
 
 <div class="setting">
-<a href="/delete">delete</a>
-<a href="/postdelete">Pdelete</a>
 
-</form>
-
+ <a href="#" class="delete">Delete Account</a>
 </div>
- <div class="container">
-   <div class="item news">
-     <h2>News feed</h2>
-     <% request = HTTParty.get('https://newsapi.org/v2/top-headlines?country=us&apiKey=10629f6795fb4c9b8f408cf4e3f81374') %>
-     <% news = JSON.parse(request.body) %>
-     <% article = news['articles'] %>
-     <% article.each do |news| %>
-     <% if news['urlToImage'] != nil && news['description'] != nil && news['author'] != nil %>
-     <div class="article">
-       <img src="<%= news['urlToImage']%>" alt="">
-       <h3><%= news['title'] %></h3>
-       <h4>From:<a href="<%= news['url'] %>" target="_blank"> <%= news['source']['name'] %></a></h4>
-       <h4>By: <%= news['author'] %></h4>
-       <p><%= news['description']%></p>
-     </div>
-     <% end %>
-     <% end %>
+<div class="sure">
+<p>Are you sure</p>
+<a href="/delete">Yes</a> <a href="#" class="close">No</a>
+ <a href="/delete"></a>
+</div>
 
-   </div>
-   <div class="item posts">
-     <h2>Post feed</h2>
-      <button type="button" name="All users" class="allPosts">All Posts</button>
-     <form class="" action="/member" method="post">
-       <label for="image">New image</label>
-       <input type="text" name="image" value='Image url' class="pics" ><br>
-       <textarea id= "myTextArea" name="message" placeholder="New post here" required></textarea>
-       <input type="submit" name="" value="Post" class="postbtn">
-     </form>
-     <% Post.all.reverse.each do |post|%>
-     <% if post['foriegn_id'] == session[:user].id %>
-     <div class="newPost mypost">
-       <a href="#" class="cancel">X</a>
-       <h3>Posted by: <%= post['by'] %></h3>
-       <p class="textOnly"><%= post['message'] %></p>
-       <small><%= DateTime.now.strftime("posted on %m/%d/%Y") %></small>
-     </div>
-     <% else %>
-     <div class="newPost allpost">
-       <a href="#" class="cancel">X</a>
-       <h3>Posted by: <%= post['by'] %></h3>
-       <img src="<%= post['post_url'] %>" alt="">
-       <p class="textOnly"><%= post['message'] %></p>
-       <small><%= DateTime.now.strftime("posted on %m/%d/%Y") %></small>
-     </div>
-     <% end %>
-     <% end %>
-   </div>
-   <div class="item members">
-     <h2>Members</h2>
-     <% User.all.each do |user|%>
-     <div class="member">
-       <img src="https://questortech.com/wp-content/uploads/2018/07/placeholder-man.png" alt="">
-       <h5><%= user["first_name"].capitalize %></h5>
-     </div>
-     <% end %>
-   </div>
- </div>
-<% end %>
+  <div class="container">
+    <div class="item news">
+      <h2>News feed</h2>
+      <% request = HTTParty.get('https://newsapi.org/v2/top-headlines?country=us&apiKey=10629f6795fb4c9b8f408cf4e3f81374') %>
+        <% news = JSON.parse(request.body) %>
+          <% article = news['articles'] %>
+            <% article.each do |news| %>
+              <% if news['urlToImage'] != nil && news['description'] != nil && news['author'] != nil %>
+                <div class="article">
+                  <img src="<%= news['urlToImage']%>" alt="">
+                  <h3><%= news['title'] %></h3>
+                  <h4>From:<a href="<%= news['url'] %>" target="_blank">
+                      <%= news['source']['name'] %></a>
+                  </h4>
+                  <h4>By:
+                    <%= news['author'] %></h4>
+                  <p><%= news['description']%></p>
+                </div>
+              <% end %>
+            <% end %>
+
+          </div>
+          <div class="item posts">
+            <h2>Post feed</h2>
+            <button type="button" name="All users" class="allPosts">All Posts</button>
+            <form class="" action="/member" method="post">
+              <label for="image">New image</label>
+              <input type="text" name="image" value='Image url' class="pics"><br>
+              <textarea id="myTextArea" name="message" placeholder="New post here" required="required"></textarea>
+              <input type="submit" name="" value="Post" class="postbtn">
+            </form>
+            <% Post.all.reverse.each do |post|%>
+              <% if post['foriegn_id'] == session[:user].id %>
+                <div class="newPost mypost">
+                  <a href="#" class="cancel">X</a>
+                  <h3>Posted by:
+                    <%= post['by'] %></h3>
+                  <div class="center">
+                    <div class="left">
+                      <% if post['post_url'] == 'Image url' %>
+                        <img src="https://questortech.com/wp-content/uploads/2018/07/placeholder-man.png" alt="">
+                      <% else %>
+                        <img src="<%= post['post_url'] %>" alt="">
+                      <% end %>
+                    </div>
+                    <div class="right">
+                      <p class="textOnly"><%= post['message'] %></p>
+                    </div>
+                  </div>
+                  <small><%= DateTime.now.strftime("posted on %m/%d/%Y") %></small>
+                </div>
+              <% else %>
+                <div class="newPost allPost">
+                  <a href="#" class="cancel">X</a>
+                  <h3>Posted by <%= post['by'] %></h3>
+                  <div class="center">
+                    <div class="left">
+                      <% if post['post_url'] == 'Image url' %>
+                        <img src="https://questortech.com/wp-content/uploads/2018/07/placeholder-man.png" alt="">
+                      <% else %>
+                        <img src="<%= post['post_url'] %>" alt="">
+                      <% end %>
+                    </div>
+                    <div class="right">
+                      <p class="textOnly"><%= post['message'] %></p>
+                    </div>
+                  </div>
+                  <small><%= DateTime.now.strftime("posted on %m/%d/%Y") %></small>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+          <div class="item members">
+            <h2>Members</h2>
+            <% User.all.each do |user|%>
+              <div class="member">
+                <img src="https://questortech.com/wp-content/uploads/2018/07/placeholder-man.png" alt="">
+                <h5><%= user["first_name"].capitalize %></h5>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>

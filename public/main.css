@@ -1,10 +1,12 @@
 * {
-  font-family: sans-serif;
+  font-family: 'Syncopate', sans-serif;
   padding: 0;
   margin: 0;
+  color: rgba(0,0,0,.85);
+  font-weight: 500;
 }
 header {
-  background:rgba(22, 102, 120,.9);
+  background:rgb(243, 53, 53);
   height: 2.5em;
   width: 100%;
   padding: .5em;
@@ -25,7 +27,7 @@ header {
   width: 100%;
   text-align: right;
   font-size: 1.2em;
-  font-weight: 200;
+  font-weight: 300;
 }
 .nav li {
   display: inline-block;
@@ -36,10 +38,10 @@ header {
 }
 .nav li a {
   text-decoration: none;
-  color: rgb(216, 215, 195);
+  color: rgba(255,255,255,.9);
 }
 .nav li a:hover {
-  border-bottom: rgb(216, 215, 195) .1em solid;
+  border-bottom: rgba(255,255,255,.9) .1em solid;
   font-size: 1.1em;
 }
 .nav h2 {
@@ -47,17 +49,17 @@ header {
   width: 50vw;
   margin: 0 25vw;
   position: absolute;
-  color: rgb(216, 215, 195);
+  color: rgb(255, 255, 255, .9);
 }
 i {
-  color: rgb(125, 185, 179);
+  color: rgb(51, 66, 91);
 }
 body {
-  background: #eeeeee;
+  background: rgb(216, 233, 240);
 }
 .home, .login, .signup{
   width: 80vw;
-  height: 75vh;
+  height: 100vh;
   /* border: black 1px solid; */
   position: fixed;
   margin: 10vh 10vw;
@@ -77,31 +79,30 @@ body {
   text-align: left;
   margin: 1.5em 0;
 }
-.home a, input[type='submit'] {
-  border: rgb(216, 215, 195) 1px solid;
+.home a, .home input[type='submit'], .login input[type=submit], .signup input[type=submit] {
+  border: rgba(255, 255, 255, .9) 1px solid;
   text-decoration: none;
   padding: .5em 1em;
   font-size: 1em;
   margin: 0 .5em;
   border-radius: 10px;
-  background: rgba(22, 102, 120,.9);
-  color: rgb(216, 215, 195);
+  background: rgba(51, 66, 91,.9);
+  color: rgba(255, 255, 255, .9);
   box-shadow: 5px 5px 5px rgba(0,0,0,.6);
 }
-.home a:hover,input[type='submit']:hover  {
-  background: rgba(22, 102, 120,.7);
-  color: rgba(216, 215, 195,.8);
+.home a:hover,.home input[type='submit']:hover, .signup input[type=submit]:hover,.login input[type='submit']:hover  {
+  background: rgba(51, 66, 91,.7);
 }
-.home a:active, input[type='submit']:active{
+.home a:active, .home input[type='submit']:active, .signup input[type='submit']:active,.login input[type='submit']:active{
   box-shadow: none;
 }
 .signupForm , .loginForm{
-  width: 30vw;
-  height: 65vh;
-  margin: 5vh 22.5vw;
+  width: 50vw;
+  height: 72vh;
+  margin: 5vh 15vw;
   font-size: 1.5em;
   position: relative;
-  background: rgba(22, 102, 120,.2);
+  background: rgba(51, 66, 91,.2);
   box-sizing: border-box;
   padding: 1em;
   border-radius: 10px;
@@ -126,17 +127,19 @@ input {
   margin-bottom: 1em;
   height: 2em;
   border-radius: 5px;
-  background-color: rgba(125, 185, 179,.6);
-  border: rgb(216, 215, 195) 1px solid;
+  background-color: rgba(51, 66, 91,.4);
+  border: rgb(255, 255, 255, .9) 1px solid;
+  font-size: .7em;
+  padding: 0;
 }
 input[type='text'],[type='email'] {
   width: 15vw;
 }
 
-input[type=submit] {
-position: absolute;
-left: 30%;
-top: 75%;
+.home input[type=submit], .loginForm input[type=submit], .signupForm input[type=submit] {
+  position: absolute;
+  left: 30%;
+  top: 80%;
 }
 .loginForm input[type=submit] {
   top: 65%;
@@ -170,7 +173,7 @@ top: 75%;
 .article {
   margin-bottom: 1em;
   padding: .5em;
-  background: rgb(125, 185, 179);
+  background: rgba(51, 66, 91,.4);
   margin-bottom: 1em;
   width: 95%;
   box-sizing: border-box;
@@ -184,17 +187,17 @@ top: 75%;
 }
 .article h3, h4 {
   margin: .3em 0;
+  font-weight: bold;
 }
 .article a {
-  color: rgb(216, 215, 195);
+  color: rgb(255, 255, 255, .9);;
   text-shadow: 2px 2px 2px rgba(0,0,0,.6);
   font-weight: 200;
 }
 .newPost {
-  background: rgb(125, 185, 179);
-  color: rgb(216, 215, 195);
-  text-shadow: 3px 3px 1px rgba(0,0,0,.7);
-  height: 15em;
+  background: rgba(51, 66, 91,.4);
+  color: rgba(255, 255, 255, .9);
+  height: 20em;
   width: 90%;
   margin: 0 auto;
   position: relative;
@@ -204,16 +207,39 @@ top: 75%;
   border-radius: 2px;
   box-shadow:5px 5px 5px rgba(0,0,0,.6);
   font-weight: 100;
+  overflow-x: hidden;
 }
-.textOnly {
+/* .textOnly {
   margin-top: 3em;
   font-size: 2em;
   width: 100%;
+} */
+.center {
+  display: inline;
+  position: absolute;
+  width: 90%;
+  height: 75%;
+  left: 5%;
+  top:15%;
+  border: black 1px solid;
+  box-sizing: content-box;
 }
-.newPost img {
+.left {
+  width: 49%;
+  height: 100%;
+  float: left;
+  box-sizing: content-box;
+
+}
+
+.right {
+  width: 49%;
+  height: 100%;
+  float: right;
+}
+.left img {
   width: 15em;
-  height: auto;
-  margin-top: 1em;
+  height:15.7em;
 }
 .newPost small {
   position: absolute;
@@ -224,6 +250,11 @@ top: 75%;
 .newPost h3 {
   text-align: left;
   font-weight: 200;
+}
+.right p {
+text-align: left;
+padding-top: 40%;
+
 }
 
 .posts {
@@ -240,24 +271,25 @@ form {
   margin-top: 0.5em;
   border-radius: 5px;
   width: 7em;
-  background: rgba(22, 102, 120,.9);
-  color: rgb(216, 215, 195);
+  background: rgba(51, 66, 91,.9);
+  color: rgb(255, 255, 255, .9);;
 }
 .postbtn:hover, .allPosts:hover {
-  background: rgba(22, 102, 120,.7);
+  background: rgba(51, 66, 91,.7);
 }
 .pics {
   width: 75%;
   margin: 1em 0;
   height: 1.5em;
   border-radius: 5px;
-  background-color: rgba(125, 185, 179,.6);
+  background-color: rgba(51, 66, 91,.9);
+  font-size: 1em;
 }
 #myTextArea {
   border-radius: 5px;
   width: 45vw;
   height: 15vh;
-  border: rgba(125, 185, 179,.6) 3px solid;
+  border: rgba(51, 66, 91,.9) 3px solid;
 }
 .cancel {
   padding: .2em .3em .1em .3em;
@@ -280,7 +312,7 @@ form {
   font-size: 1.5em;
   padding: .1em;
   position: relative;
-  background: rgb(125, 185, 179);
+  background: rgba(51, 66, 91,.4);
   margin-bottom: .5em;
   border-radius: 1em;
   left: 70%;
@@ -302,16 +334,39 @@ form {
   margin-top: 1.3em;
 }
 .setting {
-  width: 8em;
+  width: 11em;
   height: 12em;
   background: rgba(0,0,0,.8);
   position: absolute;
   z-index: 2;
-  left: 81%;
+  left: 76%;
   top: 2.5em;
 }
+.sure {
+  width: 10em;
+  height: 12em;
+  background: rgba(0,0,0,.8);
+  position: absolute;
+  z-index: 2;
+  left: 88.2%;
+  top: 2.5em
+}
+.sure a , .setting a , .sure p{
+  color: rgba(255,255,255,.9);
+  text-decoration: none;
+  margin: .1em;
+}
+.sure p {
+  margin-bottom: 1em;
+}
+.sure a {
+  margin-left: 1em;
+}
+.sure a:hover {
+  color: rgba(255,255,255,.7);
+}
 footer {
-  background: rgba(22, 102, 120,.9);
+  background: rgb(243, 53, 53);
   position: absolute;
   bottom: 0;
   width: 100%;
