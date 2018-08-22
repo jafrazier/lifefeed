@@ -77,7 +77,7 @@ body {
   text-align: left;
   margin: 1.5em 0;
 }
-.home a {
+.home a, input[type='submit'] {
   border: rgb(216, 215, 195) 1px solid;
   text-decoration: none;
   padding: .5em 1em;
@@ -88,19 +88,58 @@ body {
   color: rgb(216, 215, 195);
   box-shadow: 5px 5px 5px rgba(0,0,0,.6);
 }
-.home a:hover {
+.home a:hover,input[type='submit']:hover  {
   background: rgba(22, 102, 120,.7);
   color: rgba(216, 215, 195,.8);
 }
-.home a:active {
+.home a:active, input[type='submit']:active{
   box-shadow: none;
 }
-.signupForm {
-  border: black 1px solid;
-  width: 50vw;
-  height: 50vh;
-  margin: 5vh 16vw;
+.signupForm , .loginForm{
+  width: 30vw;
+  height: 65vh;
+  margin: 5vh 22.5vw;
   font-size: 1.5em;
+  position: relative;
+  background: rgba(22, 102, 120,.2);
+  box-sizing: border-box;
+  padding: 1em;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px rgba(0,0,0,.6);
+}
+
+.loginForm {
+  height: 50vh;
+}
+
+.signupForm h1, .loginForm h1 {
+  text-align: center;
+  margin-bottom: .5em;
+}
+.signupForm p, .loginForm p {
+  margin-bottom: .5em;
+}
+.signupForm a, .loginForm a{
+  color: black;
+}
+input {
+  margin-bottom: 1em;
+  height: 2em;
+  border-radius: 5px;
+  background-color: rgba(125, 185, 179,.6);
+  border: rgb(216, 215, 195) 1px solid;
+}
+input[type='text'],[type='email'] {
+  width: 15vw;
+}
+
+input[type=submit] {
+position: absolute;
+left: 30%;
+top: 75%;
+}
+.loginForm input[type=submit] {
+  top: 65%;
 }
 
 .container {
