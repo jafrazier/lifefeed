@@ -60,8 +60,8 @@
                     <div class="right">
                       <p class="textOnly"><%= post['message'] %></p>
                     </div>
+                    <small><%= DateTime.now.strftime("posted on %m/%d/%Y") %></small>
                   </div>
-                  <small><%= DateTime.now.strftime("posted on %m/%d/%Y") %></small>
                 </div>
               <% else %>
                 <div class="newPost allPost">
@@ -78,8 +78,8 @@
                     <div class="right">
                       <p class="textOnly"><%= post['message'] %></p>
                     </div>
+                    <small><%= DateTime.now.strftime("posted on %m/%d/%Y") %></small>
                   </div>
-                  <small><%= DateTime.now.strftime("posted on %m/%d/%Y") %></small>
                 </div>
               <% end %>
             <% end %>

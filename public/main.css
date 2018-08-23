@@ -52,7 +52,7 @@ header {
   color: rgb(255, 255, 255, .9);
 }
 i {
-  color: rgb(51, 66, 91);
+  color: rgba(51, 66, 91,.6);
 }
 body {
   background: rgb(216, 233, 240);
@@ -173,7 +173,7 @@ input[type='text'],[type='email'] {
 .article {
   margin-bottom: 1em;
   padding: .5em;
-  background: rgba(51, 66, 91,.4);
+  background: rgba(255, 255, 255,.9);
   margin-bottom: 1em;
   width: 95%;
   box-sizing: border-box;
@@ -190,24 +190,24 @@ input[type='text'],[type='email'] {
   font-weight: bold;
 }
 .article a {
-  color: rgb(255, 255, 255, .9);;
+  color: rgb(255, 255, 255, .9);
   text-shadow: 2px 2px 2px rgba(0,0,0,.6);
   font-weight: 200;
 }
 .newPost {
-  background: rgba(51, 66, 91,.4);
+  background: rgba(255, 255, 255,.9);
   color: rgba(255, 255, 255, .9);
-  height: 20em;
-  width: 90%;
+  height: 30em;
+  width: 25em;
   margin: 0 auto;
   position: relative;
   margin-bottom: 1em;
   text-align: center;
-  padding: .5em;
   border-radius: 2px;
   box-shadow:5px 5px 5px rgba(0,0,0,.6);
   font-weight: 100;
   overflow-x: hidden;
+  padding: .5em;
 }
 /* .textOnly {
   margin-top: 3em;
@@ -215,62 +215,55 @@ input[type='text'],[type='email'] {
   width: 100%;
 } */
 .center {
-  display: inline;
-  position: absolute;
-  width: 90%;
-  height: 75%;
+  margin: 0 auto;
+  width: 25vw;
+  height: 48vh;
   left: 5%;
   top:15%;
-  border: black 1px solid;
+  /* border: black 1px solid; */
   box-sizing: content-box;
+  margin-top: 1em;
+}
+.center small {
+  margin-left: 46%;
 }
 .left {
-  width: 49%;
-  height: 100%;
-  float: left;
-  box-sizing: content-box;
-
+  width: 25vw;
+  height: 35vh;
+  margin-bottom: .5em;
 }
-
 .right {
-  width: 49%;
-  height: 100%;
-  float: right;
+  width: 100%;
+  height: 25%;
+  background: rgba(51, 66, 91,.4);
+  border: black 1px solid;
 }
 .left img {
-  width: 15em;
-  height:15.7em;
+  width: 100%;
+  height:100%;
 }
-.newPost small {
-  position: absolute;
-  width: 48%;
-  text-align: right;
-  bottom: 0;
-}
+
 .newPost h3 {
   text-align: left;
   font-weight: 200;
 }
 .right p {
-text-align: left;
-padding-top: 40%;
+  text-align: left;
 
 }
-
 .posts {
   text-align: center;
 }
-
 form {
   margin-bottom: 1em;
 }
 .postbtn, .allPosts {
   margin-left: 75%;
   font-size: 1em;
-  padding: .6em 0;
+  padding: .6em .2em;
   margin-top: 0.5em;
   border-radius: 5px;
-  width: 7em;
+  width: 8em;
   background: rgba(51, 66, 91,.9);
   color: rgb(255, 255, 255, .9);;
 }
@@ -289,11 +282,11 @@ form {
   border-radius: 5px;
   width: 45vw;
   height: 15vh;
-  border: rgba(51, 66, 91,.9) 3px solid;
+  border: rgba(51, 66, 91,.4) 3px solid;
 }
 .cancel {
   padding: .2em .3em .1em .3em;
-  position: absolute;
+  float: right;
   left: 95%;
   color: red;
   border: rgba(255,255,255,.6) 1px solid;
@@ -309,6 +302,7 @@ form {
 }
 .member {
   height: 2em;
+  width: 10em;
   font-size: 1.5em;
   padding: .1em;
   position: relative;
